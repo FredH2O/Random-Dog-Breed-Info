@@ -1,5 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
+import Card from "./components/Card";
+import DogAPI from "./components/DogAPI";
 
 function App() {
   return (
@@ -7,9 +9,11 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
-      <body>
-        <div className="container-fluid"></div>
-      </body>
+      <main>
+        <div className="container-fluid">
+          <DogAPI />
+        </div>
+      </main>
       <footer></footer>
     </div>
   );
