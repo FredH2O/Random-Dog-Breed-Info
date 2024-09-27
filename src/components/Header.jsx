@@ -4,7 +4,7 @@ import "./Header.css";
 export default function Header() {
   return (
     <nav className="navbar bg-body-tertiary">
-      <div className="container-fluid">
+      <div className="container">
         <a className="navbar-brand" href="#">
           <img
             src={logo}
@@ -13,8 +13,8 @@ export default function Header() {
             height="50"
             className="d-inline-block align-text-top"
           />
+          <h1>Dog Breed Info</h1>
         </a>
-        <h1>Dog Breed Info</h1>
       </div>
     </nav>
   );

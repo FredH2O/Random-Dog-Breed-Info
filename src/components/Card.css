@@ -1,0 +1,12 @@
+.card {
+  width: 20vw !important;
+  margin: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .card {
+    width: 95vw !important;
+    padding: 5px;
+    margin: 10px;
+  }
+}

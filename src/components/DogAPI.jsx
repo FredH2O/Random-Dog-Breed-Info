@@ -18,10 +18,16 @@ const DogAPI = () => {
         const data = await response.json();
         console.log(data);
         const randomDoggo = data[Math.floor(Math.random() * data.length)];
-        setDogs(randomDoggo);
+
+        const imageResponse = await fetch(
+          `https://api.thedogapi.com/v1/images/${randomDoggo.reference_image_id}?api_key=${apiKey}`
+        );
+        console.log(imageResponse);
+        const imageData = await imageResponse.json();
+
+        setDogs({ ...randomDoggo, image: { url: imageData.url } });
       } catch (err) {
         setError(err.message);
-        console.error("Error message: ", err);
       }
     };
 
@@ -36,12 +42,14 @@ const DogAPI = () => {
     return (
       <Card
         key={dog.id}
-        img={dog.image?.url}
+        img={dog.image?.url} // Image URL from the new API call
         name={dog.name}
         description={dog.temperament}
       />
     );
   }
+
+  return <div>Loading...</div>; // Optionally add a loading state
 };
 
 export default DogAPI;

@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./components/Header";
-import Card from "./components/Card";
 import DogAPI from "./components/DogAPI";
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
         <Header />
       </header>
       <main>
-        <div className="container-fluid">
+        <div className="container">
           <DogAPI />
         </div>
       </main>
