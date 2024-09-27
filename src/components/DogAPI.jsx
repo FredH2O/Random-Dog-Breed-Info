@@ -17,15 +17,15 @@ const DogAPI = () => {
         }
         const data = await response.json();
         console.log(data);
-        const randomDoggo = data[Math.floor(Math.random() * data.length)];
+        const randomPickedDog = data[Math.floor(Math.random() * data.length)];
 
         const imageResponse = await fetch(
-          `https://api.thedogapi.com/v1/images/${randomDoggo.reference_image_id}?api_key=${apiKey}`
+          `https://api.thedogapi.com/v1/images/${randomPickedDog.reference_image_id}?api_key=${apiKey}`
         );
-        console.log(imageResponse);
+        console.log(dog);
         const imageData = await imageResponse.json();
 
-        setDogs({ ...randomDoggo, image: { url: imageData.url } });
+        setDogs({ ...randomPickedDog, image: { url: imageData.url } });
       } catch (err) {
         setError(err.message);
       }
