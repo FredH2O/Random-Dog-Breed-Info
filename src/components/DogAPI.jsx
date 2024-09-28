@@ -11,19 +11,23 @@ const DogAPI = () => {
       const response = await fetch(
         `https://api.thedogapi.com/v1/breeds?api_key=${apiKey}`
       );
+
       if (!response.ok) {
         throw new Error("Network response not ok");
       }
+
       const data = await response.json();
-      console.log(data);
       const randomPickedDog = data[Math.floor(Math.random() * data.length)];
-      console.log(randomPickedDog);
       const imageResponse = await fetch(
         `https://api.thedogapi.com/v1/images/${randomPickedDog.reference_image_id}?api_key=${apiKey}`
       );
+
       const imageData = await imageResponse.json();
 
-      setDogs({ ...randomPickedDog, image: { url: imageData.url } });
+      setDogs({
+        ...randomPickedDog,
+        image: { url: imageData.url },
+      });
     } catch (err) {
       setError(err.message);
     }

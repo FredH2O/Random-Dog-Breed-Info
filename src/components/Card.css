@@ -1,6 +1,12 @@
 .card {
-  width: 40vw !important;
   margin: 10px;
+  width: 400px !important;
+  z-index: 1;
+}
+.card-img-top {
+  height: fit-content;
+  object-fit: cover;
+  width: fit-content;
 }
 
 @media screen and (max-width: 425px) {
