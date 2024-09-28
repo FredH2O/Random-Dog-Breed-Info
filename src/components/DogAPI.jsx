@@ -6,31 +6,30 @@ const DogAPI = () => {
   const [error, setError] = useState(null);
   const apiKey = process.env.REACT_APP_DOG_API_KEY;
 
-  useEffect(() => {
-    const fetchDogs = async () => {
-      try {
-        const response = await fetch(
-          `https://api.thedogapi.com/v1/breeds?api_key=${apiKey}`
-        );
-        if (!response.ok) {
-          throw new Error("Network response not ok");
-        }
-        const data = await response.json();
-        console.log(data);
-        const randomPickedDog = data[Math.floor(Math.random() * data.length)];
-
-        const imageResponse = await fetch(
-          `https://api.thedogapi.com/v1/images/${randomPickedDog.reference_image_id}?api_key=${apiKey}`
-        );
-        console.log(dog);
-        const imageData = await imageResponse.json();
-
-        setDogs({ ...randomPickedDog, image: { url: imageData.url } });
-      } catch (err) {
-        setError(err.message);
+  const fetchDogs = async () => {
+    try {
+      const response = await fetch(
+        `https://api.thedogapi.com/v1/breeds?api_key=${apiKey}`
+      );
+      if (!response.ok) {
+        throw new Error("Network response not ok");
       }
-    };
+      const data = await response.json();
+      console.log(data);
+      const randomPickedDog = data[Math.floor(Math.random() * data.length)];
+      console.log(randomPickedDog);
+      const imageResponse = await fetch(
+        `https://api.thedogapi.com/v1/images/${randomPickedDog.reference_image_id}?api_key=${apiKey}`
+      );
+      const imageData = await imageResponse.json();
 
+      setDogs({ ...randomPickedDog, image: { url: imageData.url } });
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  useEffect(() => {
     fetchDogs();
   }, [apiKey]);
 
@@ -45,6 +44,9 @@ const DogAPI = () => {
         img={dog.image?.url} // Image URL from the new API call
         name={dog.name}
         description={dog.temperament}
+        lifespan={dog.life_span}
+        bredFor={dog.bred_for}
+        onNEXT={fetchDogs}
       />
     );
   }
