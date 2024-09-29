@@ -4,15 +4,14 @@
   z-index: 1;
 }
 .card-img-top {
-  height: fit-content;
+  height: 370px;
   object-fit: cover;
-  width: fit-content;
+  object-position: center;
 }
 
 @media screen and (max-width: 425px) {
   .card {
     width: 95vw !important;
-    padding: 5px;
-    margin: 10px;
+    margin: 0;
   }
 }

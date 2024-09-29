@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import DogAPI from "./components/DogAPI";
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
           <DogAPI />
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

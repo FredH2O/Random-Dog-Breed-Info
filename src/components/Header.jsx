@@ -4,7 +4,7 @@ import "./Header.css";
 export default function Header() {
   return (
     <nav className="navbar bg-body-tertiary">
-      <div className="container">
+      <div className="container nav-div">
         <a className="navbar-brand" href="#">
           <img
             src={logo}
