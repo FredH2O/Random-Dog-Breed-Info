@@ -9,6 +9,12 @@
   object-position: center;
 }
 
+.card button:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease-in;
+  background-color: #2c2cffb8;
+}
+
 @media screen and (max-width: 425px) {
   .card {
     width: 95vw !important;
